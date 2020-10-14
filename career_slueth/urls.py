@@ -32,6 +32,9 @@ class SignUpView(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
+class LoginView(TemplateView):
+    template_name= 'page-login.html'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,6 +42,6 @@ urlpatterns = [
     path ('dashboard/', Dashboard.as_view()),
 
     path('signup/', SignUpView.as_view(), name="signup"),
-    #path('login/', Login.as_view(), name="login"),
+    path('login/', LoginView.as_view(), name="login"),
     #path('logout/', Logout.as_view(), name="logout"),
 ]
