@@ -3,14 +3,13 @@
 {% load static %}
 
 
-
+{% block title %}Create an Account{% endblock %}
 
 
 {% block content %}
   <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+  <form method="POST" class="form-group">
+      {{form}}
+    <button type="submit" class="btn btn-success">Sign Up</button>
   </form>
 {% endblock %}

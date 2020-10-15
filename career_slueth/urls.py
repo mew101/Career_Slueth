@@ -19,21 +19,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import *
+from career_slueth.views import *
 
 
-class Index(TemplateView):
-    template_name= "index.html"
-
-class Dashboard(TemplateView):
-    template_name= "dashboard.html"
-
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'signup.html'
-
-class LoginView(TemplateView):
-    template_name= 'page-login.html'
 
 
 urlpatterns = [
@@ -41,7 +29,7 @@ urlpatterns = [
     path ('', Index.as_view(),name='index'),
     path ('dashboard/', Dashboard.as_view()),
 
-    path('signup/', SignUpView.as_view(), name="signup"),
+    #path('signup/', SignUpView.as_view(), name="signup"),
     path('login/', LoginView.as_view(), name="login"),
     #path('logout/', Logout.as_view(), name="logout"),
 ]
